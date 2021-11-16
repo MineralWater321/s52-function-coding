@@ -112,7 +112,11 @@ function findFlyingVoters(candidateA, candidateB) {
 
     // The expected output after processing the candidates array is ['LIWf1l', 'V2hjZH'].
     // Only putting return ['LIWf1l', 'V2hjZH'] will not be counted as a passing test during manual checking of codes.
-    commonVoters = candidateA.filter(function(index) {
+
+    //Using filter() in combination with indexOf() between two arrays will return the common value in each one.
+    //If indexOf() condition returns a true, then filter() will store the cycled value to the commonVoters variable.
+    let commonVoters = candidateA.filter(function(index) {
+        //negative -1 return of indexOf means that it does not exist
         return candidateB.indexOf(index) !== -1;
     })
 
